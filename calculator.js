@@ -75,18 +75,18 @@ const operate = function(op, num1, num2) {
 }
 function updateDisplay(id) {
   switch (id) {
+    case '!':
+      operator = id;
+      num1 = display.textContent;
+      answer = operate(operator, num1)
+      display.textContent = answer;
+      displayValue = answer;
+      break;
     case '+':
     case '-':
     case '*':
     case '/':
     case '^':
-    case '!':
-      console.log(num1 + id)
-      operator = id;
-      answer = operate(operator, num1)
-      display.textContent = answer;
-      displayValue = answer;
-      break;
     case '.':
       let includesSpec = specialChars.some(char => display.textContent.includes(char));
       let includesDec = display.textContent.includes('.');
